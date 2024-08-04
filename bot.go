@@ -39,6 +39,7 @@ func NewBot(pref Settings) (*Bot, error) {
 	bot := &Bot{
 		Token:   pref.Token,
 		URL:     pref.URL,
+		Test:    pref.Test,
 		Poller:  pref.Poller,
 		onError: pref.OnError,
 
@@ -71,6 +72,7 @@ type Bot struct {
 	Me      *User
 	Token   string
 	URL     string
+	Test    bool
 	Updates chan Update
 	Poller  Poller
 	onError func(error, Context)
@@ -92,6 +94,7 @@ type Bot struct {
 type Settings struct {
 	URL   string
 	Token string
+	Test  bool
 
 	// Updates channel capacity, defaulted to 100.
 	Updates int
